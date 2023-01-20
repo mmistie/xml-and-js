@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<info>
+    <individual>
+        <name>Meghna</name>
+        <hobby>Reading</hobby>
+    </individual>
+    <individual>
+        <name>Harshita</name>
+        <hobby>Talking</hobby>
+    </individual>
+    <individual>
+        <name>Ishani</name>
+        <hobby>Listening to Music</hobby>
+    </individual>
+    <individual>
+        <name>Prem</name>
+        <hobby>Gossip</hobby>
+    </individual>
+    <individual>
+        <name>Arvind</name>
+        <hobby>Creating presentation</hobby>
+    </individual>
+    <individual>
+        <name>Jainil</name>
+        <hobby>Hiking</hobby>
+    </individual>
+    <individual>
+        <name>Nikhil</name>
+        <hobby>Driving</hobby>
+    </individual>
+    <individual>
+        <name>Barkha</name>
+        <hobby>Sleeping</hobby>
+    </individual>
+    <individual>
+        <name>Siddhi</name>
+        <hobby>Photography</hobby>
+    </individual>
+    <individual>
+        <name>Harsh</name>
+        <hobby>Singing</hobby>
+    </individual>
+</info>
