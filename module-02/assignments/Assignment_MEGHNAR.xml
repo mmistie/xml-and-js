@@ -16,6 +16,7 @@
 <!ELEMENT price (#PCDATA)>
 <!ELEMENT indicator (#PCDATA)>
 ]>
+
 <menuInfo>
   <title>Chester's Breakfast Menu</title>
   <summary>

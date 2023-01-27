@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Bizcards>
+
     <Person>
         <Name> Rorie Demanche</Name>
         <Contact type="Homephone"> 17101534949</Contact>
@@ -7,6 +8,7 @@
         <Contact type="mobilephone"> 11827481667</Contact>
         <Contact type="Email"> rdemanche0@foxnews.com </Contact>
     </Person>
+
     <Person>
         <Name> Kelcey Surman </Name>
         <Contact type="Homephone"> 1249267376</Contact>
@@ -14,6 +16,7 @@
         <Contact type="mobilephone"> 19825366860</Contact>
         <Contact type="Email"> ksurman1@usnews.com</Contact>
     </Person>
+
     <Person>
         <Name> Simon Heddan </Name>
         <Contact type="Homephone"> 16878084290</Contact>
@@ -21,11 +24,13 @@
         <Contact type="mobilephone"> 19241743271</Contact>
         <Contact type="Email"> sheddan2@alexa.com </Contact>
     </Person>
-        <Person>
+
+    <Person>
         <Name> Chan Supple </Name>
         <Contact type="Homephone"> 15771652495</Contact>
         <Contact type="Workphone"> 15479347337</Contact>
         <Contact type="mobilephone"> 13676670747</Contact>
         <Contact type="Email"> csupple@123-reg.co.uk </Contact>
     </Person>
+    
 </Bizcards>
