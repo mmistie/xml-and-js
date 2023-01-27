@@ -1,8 +1,11 @@
 # Assignment_Answers
 
 1. DTD done in file named assignment_MeghnaRamsnehi.xml
+
 2. XSD saved as assignment_MeghnaRamsnehi.xsd
+
 3. Thought process for both the declaration is as below:
+
 
 Thought process for DTD
 

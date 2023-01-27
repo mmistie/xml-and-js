@@ -15,7 +15,6 @@
 <!ELEMENT color_swatch (#PCDATA)>
 <!ATTLIST color_swatch image CDATA #REQUIRED>
 ]>
-
 <catalog>
   <product product_id="e4892f6a-7cce-11ec-90d6-0242ac120003" description="Cardigan Sweater" product_image="cardigan.jpg">
     <catalog_item gender="Men">
