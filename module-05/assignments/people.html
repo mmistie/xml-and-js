@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+    <table id="table" border="1">
+        <tr>
+            <td>Firstname</td>
+            <td>Lastname</td>
+            <td>E-mail</td>
+            <td>Gender</td>
+            <td>IP Address</td>
+        </tr>
+    </table>
+    <script>
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if(this.readyState === 4 && this.status === 200){
+                displayData(this.responseXML);
+            }
+        };
+        xhr.open("GET", "people.xml", true);
+        xhr.send();
+
+        const parsePerson=(person) =>{
+                const firstName=person.getElementsByTagName('firstName')[0].childNodes[0].nodeValue;
+                const lastName=person.getElementsByTagName('lastName')[0].childNodes[0].nodeValue;
+                const email=person.getElementsByTagName('email')[0].childNodes[0].nodeValue;
+                const gender=person.getElementsByTagName('gender')[0].childNodes[0].nodeValue;
+                const ipaddress=person.getElementsByTagName('ipaddr')[0].childNodes[0].nodeValue;
+
+                return {firstName, lastName, email, gender, ipaddress};
+            };
+
+            const createPerson=parsedPerson=>{
+                const content=`
+                    <tr>
+                        <td>${parsedPerson.firstName}</td>
+                        <td>${parsedPerson.lastName}</td>
+                        <td>${parsedPerson.email}</td>
+                        <td>${parsedPerson.gender}</td>
+                        <td>${parsedPerson.ipaddress}</td>
+                    </tr>`;
+            return stringToNode(content);
+            }
+            
+            function stringToNode(content){
+                const template=document.createElement('template');
+                const html=content.trim();
+                template.innerHTML=html;
+                return template.content.firstChild;
+            }
+            const displayData=(xmlDoc) => {
+                const list=document.getElementById('table');
+                const people=xmlDoc.getElementsByTagName('person');
+                for(let index=0;index<people.length;index++)
+                {
+                    const person=people[index];
+                    const parsedPerson=parsePerson(person);
+                    const personElement=createPerson(parsedPerson);
+                    list.appendChild(personElement);
+                }
+            }
+    </script>
+    </body>
+</html>

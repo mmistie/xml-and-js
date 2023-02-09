@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+    <p id="text"></p>
+    <ol id="list"></ol>
+        <script>
+            const xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(this.readyState === 4 && this.status === 200){
+                    displayData(this.responseXML);
+                }
+            };
+            xhr.open("GET", "cards.xml", true);
+            xhr.send();
+
+            const parseCard=card =>{
+                const number=card.getElementsByTagName('number')[0].childNodes[0].nodeValue;
+                const type=card.getElementsByTagName('type')[0].childNodes[0].nodeValue;
+                const currency=card.getElementsByTagName('currency')[0].childNodes[0].nodeValue;
+                const balance=card.getElementsByTagName('balance')[0].childNodes[0].nodeValue;
+
+                return {number, type, currency, balance};
+            };
+
+            const stringToNode=value=>{
+                const template=document.createElement('template');
+                const html=value.trim();
+                template.innerHTML=html;
+                template.content.firstChild;
+                
+            }
+
+            const createCard=parsedCard=>{
+                const content=`
+                <li>
+                    <article>
+                        <p>${paresedCard.type}</p>
+                        <h2>${parsedCard.number}</h2>
+                        <div>
+                            ${parsedCard.balance} ${parsedCard.currency}
+                        
+                        </div>
+                    </article>
+                </li>`
+                return stringToNode(content);
+            };
+
+            const displayData=(xmlDoc) => {
+                const list=document.getElementById('list');
+                const cards=xmlDoc.getElementsByTagName('record');
+                for(let index=0;index<cards.length;length++)
+                {
+                    const card=cards[index];
+                    const parseCard=parseCard(card);
+                    const cardElement=createCard(parsedCard);
+                    list.appendChild(cardElement);
+                }
+            };
+        </script>
+    </body>
+</html>
