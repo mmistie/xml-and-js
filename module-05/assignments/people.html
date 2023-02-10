@@ -3,11 +3,7 @@
     <body>
     <table id="table" border="1">
         <tr>
-            <td>Firstname</td>
-            <td>Lastname</td>
-            <td>E-mail</td>
-            <td>Gender</td>
-            <td>IP Address</td>
+            <td>Full name</td>
         </tr>
     </table>
     <script>
@@ -33,11 +29,7 @@
             const createPerson=parsedPerson=>{
                 const content=`
                     <tr>
-                        <td>${parsedPerson.firstName}</td>
-                        <td>${parsedPerson.lastName}</td>
-                        <td>${parsedPerson.email}</td>
-                        <td>${parsedPerson.gender}</td>
-                        <td>${parsedPerson.ipaddress}</td>
+                        <td>${parsedPerson.firstName} ${parsedPerson.lastName} </td>
                     </tr>`;
             return stringToNode(content);
             }

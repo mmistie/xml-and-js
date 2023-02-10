@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+    <table id="table" border="1">
+        <tr bgcolor="#A020F0">
+            <td>Customer ID</td>
+            <td>customer Name</td>
+            <td>Address</td>
+            <td>Phone</td>
+            <td>email</td>
+            <td>Order ID</td>
+            <td>Order Date</td>
+            <td>Item Price</td>
+            <td>Item Quantity</td>
+        </tr>
+    </table>
+    <script>
+        const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+        displayData(this.responseXML);
+    }
+};
+xhr.open("GET", "customers.xml", true);
+xhr.send();
+
+const parseCustomer = (customer) => {
+    const custID = customer.getAttribute('custID');
+    const tname = customer.getElementsByTagName('name')[0].getAttribute('title');
+    const name = customer.getElementsByTagName('name')[0].childNodes[0].nodeValue;
+    const addr = customer.getElementsByTagName('address')[0].childNodes[0].nodeValue;
+    const pnum = customer.getElementsByTagName('phone')[0].childNodes[0].nodeValue;
+    const email = customer.getElementsByTagName('email')[0] ?
+                  customer.getElementsByTagName('email')[0].childNodes[0].nodeValue : ' - ';
+    const oID=customer.getElementsByTagName('order')[0].getAttribute('orderID');
+    const oDate=customer.getElementsByTagName('orderDate')[0].childNodes[0].nodeValue;
+    const itemPrice=customer.getElementsByTagName('itemPrice')[0].childNodes[0].nodeValue;
+    const iqty=customer.getElementsByTagName('itemQty')[0].childNodes[0].nodeValue;
+
+    return { custID, tname, name, addr, pnum, email, oID, oDate, itemPrice, iqty };
+};
+
+const createCustomer = parsedCustomer => {
+    const content = `
+        <tr>
+            <td>${parsedCustomer.custID}</td>
+            <td>${parsedCustomer.tname} ${parsedCustomer.name}</td>
+            <td>${parsedCustomer.addr}</td>
+            <td>${parsedCustomer.pnum}</td>
+            <td>${parsedCustomer.email}</td>
+            <td>${parsedCustomer.oID}</td>
+            <td>${parsedCustomer.oDate}</td>
+            <td>${parsedCustomer.itemPrice}</td>
+            <td>${parsedCustomer.iqty}</td>
+        </tr>`;
+
+    return content;
+}
+
+const displayData = (xmlDoc) => {
+    const list = document.getElementById('table');
+    const c = xmlDoc.getElementsByTagName('customer');
+    for (let index = 0; index < c.length; index++) {
+        const customer = c[index];
+        const parsedCustomer = parseCustomer(customer);
+        const customerElement = createCustomer(parsedCustomer);
+        list.innerHTML+=customerElement;
+    }
+}
+
+    </script>
+    </body>
+</html>
