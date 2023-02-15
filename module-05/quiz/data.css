@@ -1,0 +1,36 @@
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  article {
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    padding: 20px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    max-width: 400px;
+  }
+  
+  p {
+    align-self: flex-end;
+    font-size: 24px;
+    color: dimgrey;
+  }
+  
+  h2 {
+    margin: 30px 0;
+    font-size: 32px;
+  }
+  
+  article > div {
+    align-self: flex-start;
+  }
+  

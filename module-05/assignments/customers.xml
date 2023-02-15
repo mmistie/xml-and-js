@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="./customers.xsl"?>
+
 <customers>
+
   <customer custID="cust201">
     <name title="Mr.">John Michael</name>
     <address>
@@ -20,7 +22,9 @@
       </order>
     </orders>
   </customer>
+
   <customer custID="cust202">
+
     <name title="Mrs.">Sarah Michael</name>
     <address>
       41 West Plankton Avenue, Orlando, FL 32820
