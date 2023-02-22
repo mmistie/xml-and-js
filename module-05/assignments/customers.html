@@ -60,13 +60,15 @@ const createCustomer = parsedCustomer => {
 
 const displayData = (xmlDoc) => {
     const list = document.getElementById('table');
-    const c = xmlDoc.getElementsByTagName('customer');
-    for (let index = 0; index < c.length; index++) {
+    const c = Array.from(xmlDoc.getElementsByTagName('customer'));
+    c.map(parseCustomer).map(createCustomer).map((customer) => list.appendChild(customer));
+    
+/*    for (let index = 0; index < c.length; index++) {
         const customer = c[index];
         const parsedCustomer = parseCustomer(customer);
         const customerElement = createCustomer(parsedCustomer);
         list.innerHTML+=customerElement;
-    }
+    }*/
 }
 
     </script>
