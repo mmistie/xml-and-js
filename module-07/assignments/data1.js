@@ -26,3 +26,18 @@ const oldest=filtered.reduce((acc, data1)=>
     }
 }, null);
 console.log("oldest:" +oldest);
+console.log('------------------------------------------------------------');
+console.log('Refactored code with Chaining');
+console.log('------------------------------------------------------------');
+const oldest_chained = data1
+  .map((data1) => ({ Age: data1.died - data1.born }))
+  .filter((data1) => data1.Age > 75)
+  .reduce((acc, data1) => {
+    if(!acc || data1.Age > acc.Age)
+    {
+        return data1.Age;
+    } else{
+        return acc.Age;
+    }
+}, null);
+console.log('oldest: ' + oldest_chained);
