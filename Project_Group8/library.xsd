@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  ID: N01514629
+  Name: Meghna Rajubhai Ramsnehi
+  -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name = "Libraries">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "Library" type = "LibraryType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="LibraryType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="address" type="addressType"/>
+            <xs:element name="specialty" type="xs:string"/>
+            <xs:element name="catalog" type="catalogType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="addressType">
+        <xs:sequence>
+            <xs:element name="street" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="region" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="catalogType">
+        <xs:sequence>
+            <xs:element name="isbn" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="availability" type="xs:string"/>
+            <xs:element name="year" type="xs:string"/>
+            <xs:element name="genre" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="author" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

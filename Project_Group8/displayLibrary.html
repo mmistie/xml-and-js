@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- 
+  ID: N01514629
+  Name: Meghna Rajubhai Ramsnehi
+  -->
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <section class="py-5 text-center">
+            <div class="container">
+              <h1 style="text-align: center;">Libraries</h1>
+            </div>
+          </section>
+        <table id="table" border="1">
+            <tr bgcolor="#FFFF">
+                <td>Name</td>
+                <td>ID</td>
+                <td>Address</td>
+                <td>Speciality</td>
+                <td></td>
+            </tr>
+        </table>
+        <script>
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+            displayData(this.responseXML);
+            }
+            };
+            xhr.open("GET", "library.xml", true);
+            xhr.send();
+
+            const parseLibrary = (Library) => {
+        const LibName = Library.getElementsByTagName('name')[0].textContent;
+        const LibID = Library.getElementsByTagName('id')[0].textContent;
+        const addr1 = Library.getElementsByTagName('street')[0].childNodes[0].nodeValue;
+        const addr2 = Library.getElementsByTagName('city')[0].childNodes[0].nodeValue;
+        const addr3 = Library.getElementsByTagName('region')[0].childNodes[0].nodeValue;
+        const addr4 = Library.getElementsByTagName('country')[0].childNodes[0].nodeValue;
+        const specialty = Library.getElementsByTagName('specialty')[0].textContent;
+        const catalogs = Library.getElementsByTagName('catalog');
+            const books = [];
+
+            for (let i = 0; i < catalogs.length; i++) {
+                const catalog = catalogs[i];
+                const isbn = catalog.getElementsByTagName('isbn')[0].childNodes[0].nodeValue;
+                const title = catalog.getElementsByTagName('title')[0].childNodes[0].nodeValue;
+                const author = catalog.getElementsByTagName('author')[0].childNodes[0].nodeValue;
+                const availability = catalog.getElementsByTagName('availability')[0].childNodes[0].nodeValue;
+                const year = catalog.getElementsByTagName('year')[0].childNodes[0].nodeValue;
+                const genre = catalog.getElementsByTagName('genre')[0].childNodes[0].nodeValue;
+                const description = catalog.getElementsByTagName('description')[0].childNodes[0].nodeValue;
+
+                const book = {
+                    isbn,
+                    title,
+                    author,
+                    availability,
+                    year,
+                    genre,
+                    description,
+                };
+
+                  books.push(book);
+            }
+
+        return { LibName, LibID, addr1, addr2, addr3, addr4, specialty, books};
+        };
+
+        const createLibrary = (parsedLibrary) => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${parsedLibrary.LibName}</td>
+    <td>${parsedLibrary.LibID}</td>
+    <td>${parsedLibrary.addr1}, ${parsedLibrary.addr2}, ${parsedLibrary.addr3}, ${parsedLibrary.addr4}</td>
+    <td>${parsedLibrary.specialty}</td>
+  `;
+
+  parsedLibrary.books.forEach((book) => {
+    const bookTr = document.createElement("tr");
+    bookTr.innerHTML = `
+      <td>${book.isbn}</td>
+      <td>${book.title}</td>
+      <td>${book.author}</td>
+      <td>${book.availability}</td>
+      <td>${book.year}</td>
+      <td>${book.genre}</td>
+      <td>${book.description}</td>
+    `;
+    tr.appendChild(bookTr); 
+  });
+
+  return tr;
+};
+
+        const displayData = (xmlDoc) => {
+        const list = document.getElementById('table');
+        const c = Array.from(xmlDoc.getElementsByTagName('Library'));
+        c.map(parseLibrary).map(createLibrary).map((Library) => list.appendChild(Library));
+    }
+
+    </script>
+    </body>
+</html>
