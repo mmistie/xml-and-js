@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <body>
-    <table id="table" border="1">
-        <tr bgcolor="#A020F0">
-            <td>Customer ID</td>
-            <td>customer Name</td>
-            <td>Address</td>
-            <td>Phone</td>
-            <td>email</td>
-            <td>Order ID</td>
-            <td>Order Date</td>
-            <td>Item Price</td>
-            <td>Item Quantity</td>
-        </tr>
-    </table>
-    <script>
-        const xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
+const xhr = (url, method='GET') => 
+    new Promise((resolve)=> {
+        const xhttp= new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
         displayData(this.responseXML);
     }
 };
-xhr.open("GET", "customers.xml", true);
-xhr.send();
+xhttp.open("GET", "customers.xml", true);
+xhttp.send();
+    });
 
 const parseCustomer = (customer) => {
     const custID = customer.getAttribute('custID');
@@ -61,16 +47,30 @@ const createCustomer = parsedCustomer => {
 const displayData = (xmlDoc) => {
     const list = document.getElementById('table');
     const c = Array.from(xmlDoc.getElementsByTagName('customer'));
-    c.map(parseCustomer).map(createCustomer).map((customer) => list.appendChild(customer));
     
-/*    for (let index = 0; index < c.length; index++) {
+      for (let index = 0; index < c.length; index++) {
         const customer = c[index];
         const parsedCustomer = parseCustomer(customer);
         const customerElement = createCustomer(parsedCustomer);
         list.innerHTML+=customerElement;
-    }*/
+}
 }
 
-    </script>
-    </body>
-</html>
+//using promise
+xhr("customers.xml").then(displayData);
+
+//using fetch and promise
+fetch('customers.xml', {method:'GET'})
+    .then((result)=> result.text())
+    .then((data)=>new DOMParser().parseFromString(data, "text/xml"))
+    .then(displayData);
+
+//using async and fetch
+const loadData = async () => {
+    const response = await fetch("customers.xml");
+    const str = await response.text();
+    const xmlData = new DOMParser().parseFromString(str, "text/xml");
+    displayData(xmlData);
+  };
+  
+  loadData();
