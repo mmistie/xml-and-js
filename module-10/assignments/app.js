@@ -87,7 +87,6 @@ const loadGenres = async () => {
         `;
       })
     ).then(arr => arr.join('')); 
-
     if (playlists) {
       const html = `
         <article class="genre-card">
@@ -99,10 +98,8 @@ const loadGenres = async () => {
             </ul>
           </div>
         </article>`;
-
       list.insertAdjacentHTML("beforeend", html);
     }
   });
 };
-
 loadGenres();
