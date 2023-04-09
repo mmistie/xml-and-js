@@ -1,0 +1,50 @@
+.genre-card {
+  max-width: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+  background: linear-gradient(to bottom right, #5b5b5b, #1a1a1a);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.genre-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.genre-card > div > a {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.genre-card > div > p {
+  color: #c9c9c9;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 5px;
+  justify-content:space-between;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-around;
+}
