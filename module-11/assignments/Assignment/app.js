@@ -76,9 +76,6 @@ const loadGenres = async () => {
   }
   _data = genres;
 };
-
-
-
 const renderGenres = (filterTerm, selectedValue) => {
   let source = _data;
   

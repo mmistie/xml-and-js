@@ -32,8 +32,6 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-
-
 .genre-card ol li {
   list-style-type: none;
 }
