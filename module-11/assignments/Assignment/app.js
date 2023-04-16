@@ -55,6 +55,8 @@ const getTracksByPlaylist = async (token, playlistId) => {
     }
   );
 
+
+
   const data = await result.json();
   return data.items ? data.items : [];
 };
@@ -74,6 +76,8 @@ const loadGenres = async () => {
   }
   _data = genres;
 };
+
+
 
 const renderGenres = (filterTerm, selectedValue) => {
   let source = _data;
