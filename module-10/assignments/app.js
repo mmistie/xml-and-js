@@ -81,7 +81,7 @@ const loadGenres = async () => {
               <h3>${name}</h3>
             </a>
             <ol>
-              ${tracksList}
+
             </ol>
           </li>
         `;
