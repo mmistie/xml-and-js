@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Phase 2</title>
+    <link rel="stylesheet" type="text/css" href="project02.css" />
+  </head>
+  <body>
+    <form onsubmit="onSubmit(event)" onreset="onReset()">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Title or IMDb ID or Genre"
+      /><br><br>
+      <input
+        type="radio"
+        name="mode"
+        id="byGenre"
+        value="byGenre"
+      /><label for="byGenre">By Genre</label>
+      <input
+        type="radio"
+        name="mode"
+        id="byTitle"
+        value="byTitle"
+      />
+      <label for="byTitle">By Title</label>
+      <input type="radio" name="mode" id="byId" value="byId" />
+      <label for="byId">By IMDb ID</label><br><br>
+      <button type="submit">Search</button>
+      <button type="reset">Reset</button>
+    </form>
+    <br>
+    <div id="display"></div>
+    <script src="project02.js"></script>
+  </body>
+</html>

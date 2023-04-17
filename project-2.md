@@ -13,7 +13,7 @@
 - bank - currency converter "https://exchangeratesapi.io/"
 - clinic - drug and food info "https://open.fda.gov/apis/"
 - construction - blog articles "https://mediastack.com/"
-- library - movie search "http://www.omdbapi.com/"
+- library - movie search "http://   /"
 - retail - product search "https://developer.kroger.com/reference/#tag/Products"
 - software company - logo search "https://dashboard.clearbit.com/docs#logo-api"
 - stock market - crypto converter "https://coinlayer.com/"

@@ -1,0 +1,121 @@
+/* Styles for renderData function */
+/* CSS for rendering data */
+.poster {
+    width: 200px;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    transform: perspective(800px) rotateX(5deg);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .poster {
+    flex: 0 0 200px;
+    height: 300px;
+  }
+
+  .details {
+    flex: 1;
+    padding-top: 10px;
+  }
+  .poster:hover {
+    transform: perspective(800px) rotateX(0deg);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+    
+  .title {
+    font-weight: bold;
+  }
+  
+  .imdbID {
+    font-size: 12px;
+  }
+  
+  .year {
+    font-size: 14px;
+  }
+  
+  .rated {
+    font-size: 14px;
+  }
+  
+  .released {
+    font-size: 14px;
+  }
+  
+  .runtime {
+    font-size: 14px;
+  }
+  
+  .genre {
+    font-size: 14px;
+  }
+  
+  .director {
+    font-size: 14px;
+  }
+  
+  .writer {
+    font-size: 14px;
+  }
+  
+  .actors {
+    font-size: 14px;
+  }
+  
+  .plot {
+    font-size: 14px;
+  }
+  
+  .imdbRating {
+    font-size: 14px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 16px;
+  }
+  
+  /* Styles for renderDataLoop function */
+  .type {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for form elements */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  select {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  input[type="submit"],
+  input[type="reset"] {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover,
+  input[type="reset"]:hover {
+    background-color: #0056b3;
+  }
+
+  body {
+    background: linear-gradient(to right, #005BBB, #FFD500);
+  }
+  
